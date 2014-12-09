@@ -48,7 +48,7 @@
   <tr>
     <td class="tg-031e">Mesage Users</td>
     <td class="tg-031e"><ul id="messages"></ul> </td>
-    <td class="tg-031e"><form action=""> <input id="m" autocomplete="off" /> 
+    <td class="tg-031e"><form id="me" > <input id="m" autocomplete="off" /> 
       <button>Send GSM Message to All</button>
       </form></td>
   </tr>
@@ -72,7 +72,8 @@
 //Send Message
   var socket = io();
 
-  $('form').submit(function(){
+  var Msocket = io(me);
+  $('#me').submit(function(){
     socket.emit('Cmessage', $('#m').val());
     $('#m').val('');
     return false;
